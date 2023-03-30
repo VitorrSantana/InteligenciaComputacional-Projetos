@@ -71,23 +71,3 @@ def equacaoNormal(features,target):
     Ypred = equacaoRegressaoLinear(thetas,features)
     return thetas, erroQuadradoMedio(Ypred,target['PrecoCasa'])
     
-    
-def plot_3d(features,target, thetas, taxa):
-    fig = plt.figure(figsize= (16,9))
-    ax = plt.axes(projection = '3d')
-        
-    ax.grid(b = True, color = 'grey', linestyle = '-.', linewidth = 0.3, alpha = 0.2)
-        
-    equacaoLinear = equacaoRegressaoLinear(thetas,features)
-            
-    ax.plot(features['TamanhoCasa'],features['NumeroQuartos'],equacaoLinear,marker='.')
-    ax.scatter(features['TamanhoCasa'],features['NumeroQuartos'], target['PrecoCasa'], marker='.',c="r")
-     
-    plt.title(f"Regressao Linear multiplas variaveis - {taxa}")
-    ax.set_xlabel('TamanhoCasa')
-    ax.set_ylabel('NumeroQuartos')
-    ax.set_zlabel('Preco')
-        
-    plt.show()
-    plt.clf()
-    plt.close()
